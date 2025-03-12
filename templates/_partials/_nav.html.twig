@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" style="color:white" href="{{path('app_main')}}">e-commerce</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active " style="color:white"aria-current="page" href="{{path('app_main')}} ">Accueil</a>
+              </li>
+        <li class="nav-item">
+          <a class="nav-link " style="color:white" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"style="color:white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul class="dropdown-menu style="color:white"">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled"style="color:white">Disabled</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {%if app.user%}
+          {% if is_granted('ROLE_PRODUCT_ADMIN') %}
+            <li class="nav-item " >
+              <a class="nav-link" href="{{path('admin_index')}}" >
+                <span class=" badge bg-danger"><img src="{{asset('assets/uploads/icons/admin.png')}}" width="20px" height="20px"/> Administrateur</span>
+              </a>
+            </li>
+          {% endif %}
+          
+          <li class="nav-item">
+            <a class="nav-link"style="color:white" href="{{path('profile_index')}}"><img src="{{asset('assets/uploads/icons/utilisateur.png')}}" width="20px" height="20px"/> Mon Compte</a>
+          </li>
+         <li class="nav-item">
+            <a class="nav-link"style="color:white" href="{{path('app_logout')}}"><img src="{{asset('assets/uploads/icons/off.png')}}" width="20px" height="20px"/> Me Déconnecter</a>
+          </li>
+          {% else %}
+            <li class="nav-item">
+              <a class="nav-link" style="color:white" href="{{path('app_register')}}">M'inscrire</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color:white"href="{{path('app_login')}}">Me Connecter</a>
+            </li>
+            
+          {% endif %}
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>

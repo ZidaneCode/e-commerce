@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile utilisateurs
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<aside class="col-3 border  border-light bg-wight p-2">
+				<div class="card border-primary mb-3" style="max-width: 18rem;">
+					<div class="card-header">
+						<strang>Role:</strang>
+						{% for role in user.roles %}
+							{% if role == "ROLE_ADMIN" %}
+								{% set name = "Administrateur" %}
+								{% set color = "danger" %}
+							{% elseif role == "ROLE_PRODUCT_ADMIN" %}
+								{% set name = "Admin produits" %}
+								{% set color = "warning" %}
+							{% else %}
+								{% set name = "Membre" %}
+								{% set color = "success" %}
+							{% endif %}
+							<span class=" badge bg-{{color}}">{{name}}</span>
+						{% endfor %}
+					</div>
+					<div class="card-body text-primary">
+
+						<div class="card border-primary mb-3" style="max-width: 18rem;">
+							<div class="card-header">
+								<h2 class="card-title">Mon identité</h2>
+							</div>
+							<div class="card-body text-primary">
+								<p class="card-title"><img src="{{asset('assets/uploads/icons/utilisateur.png')}}" width="20px" height="20px"/>
+									{{user.lastname }}
+									{{user.firstname }}</p>
+								<p class="card-title"><img src="{{asset('assets/uploads/icons/gmail.png')}}" width="20px" height="20px"/>
+									{{user.email }}</p>
+							</div>
+						</div>
+						<div class="card border-primary mb-3" style="max-width: 18rem;">
+							<div class="card-header">
+								<h3 class="card-title">Mes Coordoneés</h3>
+							</div>
+							<div class="card-body text-primary">
+								<p>
+									<img src="{{asset('assets/uploads/icons/localisation.png')}}" width="20px" height="20px"/>
+									{{user.Address }}
+									{{user.city}}
+								</p>
+								<p>
+									<h5 class="card-title">Code Postal:</h5>
+									{{user.zipcode }}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</aside>
+			<main class="col-9 border border-light bg-wight p-2">
+				<h1>
+					Récapitulatif de mon panier
+				</h1>
+				 <div class="row">
+            <section class="col">
+            <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Photo</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Photo</td>
+      <td>Nom</td>
+      <td>Prix</td>
+    </tr>
+ 
+  </tbody>
+</table>
+
+            </section>
+            <section class="col">
+<div class="card border-success mb-3" style="max-width: 18rem;">
+  <div class="card-header">colonne2</div>
+  <div class="card-body text-success">
+    <p class="card-text">Monsieur {{user.lastname}} cliquez sur le botton pour valider voter achat</p>
+     <button type="button" class="btn btn-success">Valider Mon achat</button>
+  </div>
+</div>
+
+            </section >
+            <a href="">	<img src="{{asset('assets/uploads/icons/plus.png')}}" width="30px" height="30px"/>
+ Ajouter d'autre produits a ma panier</a>
+            <section class="col">
+            </section>
+          </div>
+			</main>
+		</div>
+	</div>
+{% endblock %}

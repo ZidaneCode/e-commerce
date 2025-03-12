@@ -1,0 +1,5 @@
+<h1>Activer votre compte </h1>
+<p>Bonjour {{ user.lastname }}</p>
+<p>Votre inscription sur le site e-commerce est à validée en cliquant sur le lien ci-dessous</p>
+<p><a href="{{ absolute_url(path('verify_user',{token:token}))}}">{{token}}</a></p>
+<p><i style="color:red">ce lien expirera dans 3 heurs a compté de sa reciption</i></p>

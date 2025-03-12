@@ -1,0 +1,42 @@
+<aside class="col-3 border  border-light bg-wight p-2">
+	<article class="card nb-3 ">
+		<div class="card-header ">
+			<img src="{{asset('assets/uploads/icons/categorie.png')}}" width="20px" height="20px"/>Catégories
+		</div>
+		<div class="card-body">
+			<p>
+				<a href="{{path('admin_categories_index')}}">Liste des catégories</a>
+			</p>
+			<p>
+				<a href="">ajouter une catégorie</a>
+			</p>
+		</div>
+	</article>
+	<article class="card nb-3">
+		<div class="card-header">
+			<img src="{{asset('assets/uploads/icons/produits.png')}}" width="20px" height="20px"/> Produits
+		</div>
+		<div class="card-body">
+			<p>
+				<a href="{{path('admin_products_index')}}">Liste des produits</a>
+			</p>
+			<p>
+				<a href="{{path('admin_products_add')}}">ajouter un produit</a>
+			</p>
+		</div>
+	</article>
+	{% if is_granted('ROLE_ADMIN') %}
+		<article class="card nb-3">
+			<div class="card-header">
+				<img src="{{asset('assets/uploads/icons/groupe.png')}}" width="20px" height="20px"/> Utilisateurs
+			</div>
+			<div class="card-body">
+				<p>
+					<a href="{{path('admin_users_index')}}">Liste des utilisateurs</a>
+				</p>
+			</div>
+		</article>
+	{% endif %}
+
+
+</aside>
